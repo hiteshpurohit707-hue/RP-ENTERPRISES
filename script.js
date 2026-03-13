@@ -1,20 +1,20 @@
-/* BUTTON MESSAGE */
+/* ================= BUTTON MESSAGE ================= */
 
 function showMessage(){
 alert("Thank you! Our team will contact you soon.");
 }
 
 
-/* SCROLL REVEAL */
+/* ================= SCROLL ANIMATION ================= */
 
 const reveals = document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", function(){
+window.addEventListener("scroll", () => {
 
 const windowHeight = window.innerHeight;
 const revealPoint = 120;
 
-reveals.forEach(function(element){
+reveals.forEach(element => {
 
 const revealTop = element.getBoundingClientRect().top;
 
@@ -24,56 +24,47 @@ element.classList.add("active");
 
 });
 
-});
+});  // ❗ THIS BRACKET WAS MISSING
 
 
-/* LOADER */
-
-document.addEventListener("DOMContentLoaded", function(){
+/* ================= LOADER COUNTER ================= */
 
 let progress = 0;
 
-const progressText = document.getElementById("progress");
-const loader = document.getElementById("loader");
-const website = document.getElementById("website");
-const circle = document.getElementById("progress-bar");
+const progressSpan = document.getElementById('progress');
+const loader = document.getElementById('loader');
+const circle = document.getElementById('progress-bar');
 
-const radius = 100;
+const radius = circle.r.baseVal.value;
 const circumference = 2 * Math.PI * radius;
 
 circle.style.strokeDasharray = circumference;
+circle.style.strokeDashoffset = circumference;
 
 function setProgress(percent){
-
-const offset = circumference - (percent/100)*circumference;
-
+const offset = circumference - (percent / 100) * circumference;
 circle.style.strokeDashoffset = offset;
-
 }
 
-const loaderInterval = setInterval(function(){
+const interval = setInterval(() => {
 
 progress++;
 
-progressText.textContent = progress;
+progressSpan.textContent = progress;
 
 setProgress(progress);
 
 if(progress >= 100){
 
-clearInterval(loaderInterval);
+clearInterval(interval);
 
+loader.style.transition = "opacity 0.5s ease";
 loader.style.opacity = "0";
 
-setTimeout(function(){
-
+setTimeout(()=>{
 loader.style.display = "none";
-website.style.display = "block";
-
 },500);
 
 }
 
-},35);
-
-});
+},30);
