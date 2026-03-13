@@ -363,11 +363,10 @@ left:-80px;
 100%{
 left:200px;
 }
-}
 .logo-area{
 display:flex;
 align-items:center;
-gap:12px;
+gap:10px;
 }
 
 .logo-area img{
