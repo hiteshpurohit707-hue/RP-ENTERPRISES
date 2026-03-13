@@ -373,11 +373,11 @@ left:200px;
 .logo-area{
 display:flex;
 align-items:center;
-gap:10px;
+gap:15px;
 }
-
 .logo-area img{
-height:50px;
+height:60px;
 width:auto;
+object-fit:contain;
 }
 
