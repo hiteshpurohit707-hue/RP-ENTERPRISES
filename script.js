@@ -23,31 +23,48 @@ element.classList.add("active");
 }
 
 });
-// LOADER COUNTER
+
+});  // ❗ THIS BRACKET WAS MISSING
+
+
+/* ================= LOADER COUNTER ================= */
+
 let progress = 0;
+
 const progressSpan = document.getElementById('progress');
 const loader = document.getElementById('loader');
 const circle = document.getElementById('progress-bar');
 
 const radius = circle.r.baseVal.value;
 const circumference = 2 * Math.PI * radius;
+
 circle.style.strokeDasharray = circumference;
 circle.style.strokeDashoffset = circumference;
 
 function setProgress(percent){
-  const offset = circumference - (percent / 100) * circumference;
-  circle.style.strokeDashoffset = offset;
+const offset = circumference - (percent / 100) * circumference;
+circle.style.strokeDashoffset = offset;
 }
 
 const interval = setInterval(() => {
-  progress++;
-  progressSpan.textContent = progress;
-  setProgress(progress);
 
-  if(progress >= 100){
-    clearInterval(interval);
-    loader.style.transition = "opacity 0.5s ease";
-    loader.style.opacity = "0";
-    setTimeout(()=>loader.style.display="none",500);
-  }
-}, 30);
+progress++;
+
+progressSpan.textContent = progress;
+
+setProgress(progress);
+
+if(progress >= 100){
+
+clearInterval(interval);
+
+loader.style.transition = "opacity 0.5s ease";
+loader.style.opacity = "0";
+
+setTimeout(()=>{
+loader.style.display = "none";
+},500);
+
+}
+
+},30);
