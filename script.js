@@ -1,35 +1,57 @@
-const form = document.getElementById("appointmentForm");
+/* ================= BUTTON MESSAGE ================= */
 
-form.addEventListener("submit", async function (e) {
-  e.preventDefault();
+function showMessage(){
+alert("Thank you! Our team will contact you soon.");
+}
 
-  const submitBtn = form.querySelector("button");
-  submitBtn.disabled = true;
-  submitBtn.innerText = "Submitting...";
 
-  const formData = new FormData(form);
+/* ================= SCROLL ANIMATION ================= */
 
-  try {
-    const response = await fetch(form.action, {
-      method: "POST",
-      body: formData,
-      headers: {
-        "Accept": "application/json"
-      }
-    });
+const reveals = document.querySelectorAll(".reveal");
 
-    if (response.ok) {
-      alert("✅ Appointment booked successfully!");
-      form.reset();
-    } else {
-      alert("❌ Submission failed. Please try again.");
-    }
+window.addEventListener("scroll", () => {
 
-  } catch (error) {
-    console.error(error);
-    alert("❌ Network error. Try again later.");
-  }
+const windowHeight = window.innerHeight;
+const revealPoint = 120;
 
-  submitBtn.disabled = false;
-  submitBtn.innerText = "Schedule Appointment";
+reveals.forEach(element => {
+
+const revealTop = element.getBoundingClientRect().top;
+
+if(revealTop < windowHeight - revealPoint){
+element.classList.add("active");
+}
+
 });
+
+});
+/* ================= LOADER ================= */
+/* ================= LOADER ANIMATION ================= */
+
+let progress = 0;
+let loader = document.getElementById("loader");
+let number = document.getElementById("progress");
+
+let interval = setInterval(() => {
+
+progress++;
+
+number.textContent = progress;
+
+if(progress >= 100){
+
+clearInterval(interval);
+
+setTimeout(() => {
+
+loader.style.opacity = "0";
+
+setTimeout(()=>{
+loader.style.display = "none";
+},500);
+
+},500);
+
+}
+
+},50);
