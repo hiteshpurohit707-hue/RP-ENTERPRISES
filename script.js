@@ -23,35 +23,20 @@ element.classList.add("active");
 }
 
 });
-
-});
-/* ================= LOADER ================= */
-/* ================= LOADER ANIMATION ================= */
-
+// LOADER COUNTER
 let progress = 0;
-let loader = document.getElementById("loader");
-let number = document.getElementById("progress");
+const progressSpan = document.getElementById('progress');
+const loader = document.getElementById('loader');
 
-let interval = setInterval(() => {
+const interval = setInterval(() => {
+  progress++;
+  progressSpan.textContent = progress;
 
-progress++;
-
-number.textContent = progress;
-
-if(progress >= 100){
-
-clearInterval(interval);
-
-setTimeout(() => {
-
-loader.style.opacity = "0";
-
-setTimeout(()=>{
-loader.style.display = "none";
-},500);
-
-},500);
-
-}
-
-},50);
+  if(progress >= 100){
+    clearInterval(interval);
+    // Fade out loader smoothly
+    loader.style.transition = "opacity 0.5s ease";
+    loader.style.opacity = "0";
+    setTimeout(()=>loader.style.display="none", 500);
+  }
+}, 30); // Adjust speed: lower = faster
