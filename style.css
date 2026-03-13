@@ -367,10 +367,10 @@ left:200px;
 .logo-area{
 display:flex;
 align-items:center;
-gap:10px;
+gap:12px;
 }
 
 .logo-area img{
-height:45px;
+height:50px;
 width:auto;
 }
