@@ -364,3 +364,13 @@ left:-80px;
 left:200px;
 }
 }
+.logo-area{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo-area img{
+height:45px;
+width:auto;
+}
