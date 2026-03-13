@@ -1,20 +1,17 @@
-/* ================= BUTTON MESSAGE ================= */
-
 function showMessage(){
 alert("Thank you! Our team will contact you soon.");
 }
 
-
-/* ================= SCROLL ANIMATION ================= */
+/* SCROLL REVEAL */
 
 const reveals = document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll", ()=>{
 
 const windowHeight = window.innerHeight;
 const revealPoint = 120;
 
-reveals.forEach(element => {
+reveals.forEach(element=>{
 
 const revealTop = element.getBoundingClientRect().top;
 
@@ -24,33 +21,36 @@ element.classList.add("active");
 
 });
 
-});  // ❗ THIS BRACKET WAS MISSING
+});
 
+/* LOADER */
 
-/* ================= LOADER COUNTER ================= */
+document.addEventListener("DOMContentLoaded", ()=>{
 
 let progress = 0;
 
-const progressSpan = document.getElementById('progress');
-const loader = document.getElementById('loader');
-const circle = document.getElementById('progress-bar');
+const progressText = document.getElementById("progress");
+const loader = document.getElementById("loader");
+const circle = document.getElementById("progress-bar");
 
-const radius = circle.r.baseVal.value;
+const radius = circle.getAttribute("r");
 const circumference = 2 * Math.PI * radius;
 
 circle.style.strokeDasharray = circumference;
-circle.style.strokeDashoffset = circumference;
 
 function setProgress(percent){
-const offset = circumference - (percent / 100) * circumference;
+
+const offset = circumference - (percent/100)*circumference;
+
 circle.style.strokeDashoffset = offset;
+
 }
 
-const interval = setInterval(() => {
+const interval = setInterval(()=>{
 
 progress++;
 
-progressSpan.textContent = progress;
+progressText.textContent = progress;
 
 setProgress(progress);
 
@@ -58,13 +58,14 @@ if(progress >= 100){
 
 clearInterval(interval);
 
-loader.style.transition = "opacity 0.5s ease";
-loader.style.opacity = "0";
+loader.style.opacity="0";
 
 setTimeout(()=>{
-loader.style.display = "none";
+loader.style.display="none";
 },500);
 
 }
 
 },30);
+
+});
