@@ -21,15 +21,17 @@
 <body>
 
 <!-- ================= LOADER ================= -->
-<!-- LOADER -->
 <div id="loader">
   <div class="loader-content">
     <div class="progress-circle">
       <svg width="200" height="200">
-        <circle cx="100" cy="100" r="90" stroke="#FFD000" stroke-width="8" fill="none" />
-        <circle id="progress-bar" cx="100" cy="100" r="90" stroke="#FF6A00" stroke-width="8" fill="none" 
-        stroke-linecap="round" stroke-dasharray="565.48" stroke-dashoffset="565.48"/>
+        <!-- Background circle -->
+        <circle cx="100" cy="100" r="90" stroke="#FFD000" stroke-width="8" fill="none"/>
+        <!-- Animated progress circle -->
+        <circle id="progress-bar" cx="100" cy="100" r="90" stroke="#FF6A00" stroke-width="8" fill="none"
+                stroke-dasharray="565.48" stroke-dashoffset="565.48"/>
       </svg>
+      <!-- Centered logo -->
       <img src="logo.jpeg" class="loader-logo" alt="RP Enterprises Logo">
     </div>
     <h1 class="loader-title">RP ENTERPRISES</h1>
