@@ -25,13 +25,13 @@ header{
   z-index:100;
 }
 
-.logo-area{
+.logo-circle{
   display:flex;
   align-items:center;
   gap:12px;
 }
 
-.logo-area img{
+.logo-circle img{
   height:55px;
   width:auto;
 }
