@@ -123,40 +123,46 @@ svg {
 /* ============================= */
 /* HERO SECTION */
 /* ============================= */
-.hero {
-  background: url("https://i.ibb.co/Xfk7FqPm/From-Klick-Pin-CF-Excellence-in-Construction-Discover-Utah-Construction-Company-Today-in-2026-Const.jpg") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 50px;
-  color: #FFD000;
-  height: 120px; /* keeps header tall enough for large text */
+.hero{
+  background-image: linear-gradient(rgba(10,31,68,0.7), rgba(10,31,68,0.7)),
+  url("https://i.ibb.co/Xfk7FqPm/From-Klick-Pin-CF-Excellence-in-Construction-Discover-Utah-Construction-Company-Today-in-2026-Const.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#FFD000;
 }
 
-.hero .logo img {
-  height: 80px; /* large logo */
+.hero h2{
+  font-size:48px;
+  margin-bottom:20px;
 }
 
-.hero h1 {
-  font-size: 48px; /* keeps text big */
-  font-weight: bold;
-  text-align: center;
-  margin: 0;
+.hero p{
+  font-size:54px;
+  margin-bottom:30px;
 }
 
-.hero .btn {
-  background: #FFD000;
-  color: #0A1F44;
-  padding: 14px 30px; /* big button */
-  font-size: 32px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s;
+.hero button{
+  padding:14px 30px;
+  font-size:34px;
+  border:none;
+  background:#FFD000;
+  color:#0A1F44;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-.hero .btn:hover {
-  background: white;
-  transform: scale(1.05);
+.hero button:hover{
+  background:white;
+  transform:scale(1.05);
 }
 /* ============================= */
 /* SECTION TITLE */
