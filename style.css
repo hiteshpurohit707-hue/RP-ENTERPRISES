@@ -25,18 +25,18 @@ header{
   z-index:100;
 }
 
-.logo-circle{
+.logo-area{
   display:flex;
   align-items:center;
   gap:12px;
 }
 
-.logo-circle img{
-  height:55px;
-  width:auto;
-  border-radius: 15px;
+.logo-area img {
+  width: 55px;       /* force square for perfect circle */
+  height: 55px;
+  border-radius: 50%; /* makes the logo circular */
+  object-fit: cover;  /* ensures the image scales nicely inside circle */
 }
-
 .company-name{
   font-size:30px;
   font-weight:600;
