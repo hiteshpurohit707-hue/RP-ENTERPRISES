@@ -130,23 +130,26 @@ svg {
   justify-content: space-between;
   padding: 20px 50px;
   color: #FFD000;
+  height: 120px; /* keeps header tall enough for large text */
 }
 
 .hero .logo img {
-  height: 60px; /* adjust as needed */
+  height: 80px; /* large logo */
 }
 
 .hero h1 {
-  flex: 1;
+  font-size: 48px; /* keeps text big */
+  font-weight: bold;
   text-align: center;
-  font-size: 32px;
+  margin: 0;
 }
 
 .hero .btn {
   background: #FFD000;
   color: #0A1F44;
-  padding: 10px 25px;
-  font-weight: bold;
+  padding: 14px 30px; /* big button */
+  font-size: 32px;
+  font-weight: 600;
   text-decoration: none;
   transition: 0.3s;
 }
