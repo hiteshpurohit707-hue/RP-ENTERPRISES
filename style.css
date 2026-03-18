@@ -277,6 +277,25 @@ transition:1s;
 }
 
 .reveal.active{
+  
+/* MOBILE */
+@media(max-width:768px){
+
+.progress-circle{
+width:160px;
+height:160px;
+}
+
+.loader-logo{
+width:80px;
+height:80px;
+}
+
+.loader-title{
+font-size:20px;
+}
+
+}
 opacity:1;
 transform:translateY(0);
 }
