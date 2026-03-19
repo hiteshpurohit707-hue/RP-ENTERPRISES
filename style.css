@@ -19,6 +19,7 @@ margin:auto;
 
 
 /* ================= LOADER ================= */
+/* ================= LOADER ================= */
 
 #loader{
 position:fixed;
@@ -39,60 +40,100 @@ justify-content:center;
 align-items:center;
 z-index:9999;
 color:white;
+overflow:hidden;
 }
 
+/* Center content */
 .loader-content{
 text-align:center;
 }
 
+/* Circle wrapper */
 .progress-circle{
 position:relative;
 width:220px;
 height:220px;
 margin:auto;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
+/* SVG perfectly aligned */
 .progress-circle svg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
 transform:rotate(-90deg);
 }
 
+/* Background circle */
 .progress-circle circle{
 fill:none;
-stroke-width:8;
 stroke:#444;
+stroke-width:8;
 }
 
+/* Progress circle */
 #progress-bar{
 stroke:#FFD000;
 stroke-dasharray:565;
 stroke-dashoffset:565;
 stroke-linecap:round;
-filter:drop-shadow(0 0 8px #FFD000);
-transition:stroke-dashoffset .3s;
+filter:drop-shadow(0 0 10px #FFD000);
+transition:stroke-dashoffset .3s ease;
 }
 
+/* PERFECT CENTER LOGO */
 .loader-logo{
-width:130px;
-height:130px;
+width:120px;
+height:120px;
 border-radius:50%;
 object-fit:cover;
+
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-box-shadow:0 0 25px rgba(255,208,0,0.5);
+
+z-index:2;
+box-shadow:0 0 30px rgba(255,208,0,0.6);
+}
+
+/* Title */
+.loader-title{
+font-size:32px;
+font-weight:600;
+letter-spacing:2px;
+color:#FFD000;
+margin-top:25px;
+}
+
+/* Percentage */
+.loading-number{
+font-size:26px;
+margin-top:10px;
+font-weight:500;
+}
+
+/* Mobile */
+@media(max-width:768px){
+.progress-circle{
+width:180px;
+height:180px;
+}
+
+.loader-logo{
+width:90px;
+height:90px;
 }
 
 .loader-title{
-font-size:32px;
-margin-top:20px;
-color:#FFD000;
+font-size:22px;
 }
-
-.loading-number{
-font-size:26px;
 }
-
 
 /* ================= HEADER ================= */
 
