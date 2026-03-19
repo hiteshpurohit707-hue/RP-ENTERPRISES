@@ -1,85 +1,44 @@
-/* ================= BUTTON MESSAGE ================= */
-function showMessage(){
-alert("Thank you! Our team will contact you soon.");
-}
-
-
-/* ================= SCROLL REVEAL ================= */
-const reveals = document.querySelectorAll(".reveal");
-
-function revealOnScroll(){
-const windowHeight = window.innerHeight;
-const revealPoint = 120;
-
-reveals.forEach(el => {
-const top = el.getBoundingClientRect().top;
-
-if(top < windowHeight - revealPoint){
-el.classList.add("active");
-}
-});
-}
-
-window.addEventListener("scroll", revealOnScroll);
-
-
-/* ================= LOADER ================= */
+// LOADER
 let progress = 0;
-
-const progressSpan = document.getElementById("progress");
 const loader = document.getElementById("loader");
+const progressSpan = document.getElementById("progress");
 const circle = document.getElementById("progress-bar");
 
-const radius = circle.r.baseVal.value;
+const radius = 90;
 const circumference = 2 * Math.PI * radius;
 
 circle.style.strokeDasharray = circumference;
-circle.style.strokeDashoffset = circumference;
 
-function setProgress(percent){
-const offset = circumference - (percent / 100) * circumference;
-circle.style.strokeDashoffset = offset;
+function setProgress(p){
+circle.style.strokeDashoffset = circumference - (p/100)*circumference;
 }
 
-const interval = setInterval(() => {
+const interval = setInterval(()=>{
 progress++;
-
 progressSpan.textContent = progress;
 setProgress(progress);
 
 if(progress >= 100){
 clearInterval(interval);
-
-// smooth fade out
-loader.style.opacity = "0";
-loader.style.transition = "opacity 0.6s ease";
-
-setTimeout(()=>{
 loader.style.display = "none";
-document.body.style.overflow = "auto";
-},600);
 }
-
 },20);
 
 
-/* ================= MOBILE MENU ================= */
-const menuToggle = document.getElementById("menu-toggle");
-const navMenu = document.getElementById("nav-menu");
-
-menuToggle.addEventListener("click", () => {
-navMenu.classList.toggle("active");
+// SCROLL ANIMATION
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".reveal").forEach(el=>{
+if(el.getBoundingClientRect().top < window.innerHeight - 100){
+el.classList.add("active");
+}
+});
 });
 
 
-/* ================= HEADER SCROLL EFFECT ================= */
-const header = document.querySelector(".header");
+// MOBILE MENU
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-menu");
 
-window.addEventListener("scroll", () => {
-if(window.scrollY > 50){
-header.style.background = "rgba(0,0,0,0.7)";
-}
-else{
-header.style.background = "rgba(255,255,255,0.07)";
-}
+toggle.addEventListener("click",()=>{
+nav.classList.toggle("active");
 });
